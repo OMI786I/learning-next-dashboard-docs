@@ -1,10 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import { BiGlobe, BiHome } from "react-icons/bi";
-import { BsFile } from "react-icons/bs";
+import { BsFile, BsPower } from "react-icons/bs";
 import { FiFile } from "react-icons/fi";
 import { HiHome } from "react-icons/hi";
 import { RiCustomerServiceFill } from "react-icons/ri";
+import NavLinks from "./nav-links";
 
 const SideNav = () => {
   return (
@@ -19,25 +20,14 @@ const SideNav = () => {
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block">
-          <Link href={"/"}>
+          <NavLinks />
+
+          <div className="flex items-end">
             <button className="flex items-center w-full gap-1 text-xl p-4 delay-75  hover:bg-blue-100 hover:text-blue-800">
-              <BiHome />
-              Home
+              <BsPower />
+              Sign Out
             </button>
-          </Link>
-          <Link href={"/dashboard/invoices"}>
-            <button className="flex items-center w-full gap-1 text-xl p-4 delay-75  hover:bg-blue-100 hover:text-blue-800">
-              <FiFile />
-              Invoices
-            </button>
-          </Link>
-          <Link href={"/dashboard/customers"}>
-            {" "}
-            <button className="flex items-center w-full gap-1 text-xl p-4 delay-75  hover:bg-blue-100 hover:text-blue-800">
-              <RiCustomerServiceFill />
-              Customers
-            </button>
-          </Link>
+          </div>
         </div>
       </div>
     </div>
