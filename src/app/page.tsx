@@ -3,8 +3,12 @@ import styles from "../../src/app/ui/home.module.css";
 import { lusitana } from "./ui/font";
 import { BsGlobe } from "react-icons/bs";
 import { BiArrowFromRight } from "react-icons/bi";
+import { connectDB } from "@/lib/mongoConnect";
 export default function Home() {
   console.log(lusitana);
+  const connection = connectDB();
+  console.log("connection", connection);
+
   return (
     <>
       <div className="bg-blue-500 text-white h-48 rounded-lg flex items-end">

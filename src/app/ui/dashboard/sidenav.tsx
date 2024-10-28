@@ -2,9 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { BiGlobe, BiHome } from "react-icons/bi";
 import { BsFile, BsPower } from "react-icons/bs";
-import { FiFile } from "react-icons/fi";
-import { HiHome } from "react-icons/hi";
-import { RiCustomerServiceFill } from "react-icons/ri";
+
 import NavLinks from "./nav-links";
 
 const SideNav = () => {
