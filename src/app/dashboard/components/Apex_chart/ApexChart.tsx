@@ -1,7 +1,10 @@
 // components/ApexChart.js
 "use client";
+import axios from "axios";
+import { error } from "console";
 import dynamic from "next/dynamic";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { inflate } from "zlib";
 
 // Dynamically import ReactApexChart to avoid server-side rendering
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
@@ -9,12 +12,14 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 });
 
 const ApexChart = () => {
+  const [data, setData] = useState([]);
+
   // Using useState instead of this.state for functional components
-  const [chartData] = useState({
+  const [chartData, setChartData] = useState({
     series: [
       {
         name: "Inflation",
-        data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2],
+        data: [],
       },
     ],
     options: {
@@ -104,6 +109,21 @@ const ApexChart = () => {
       },
     },
   });
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/chart")
+      .then((res) => setData(res.data))
+      .catch((error) => console.log(error));
+  }, []);
+  useEffect(() => {
+    // Calculate chartData2 based on the latest `data`
+    const chartData2 = data.map((res) => res.revenue / 5000);
+    // Update chartData with new `chartData2`
+    setChartData((prevChartData) => ({
+      ...prevChartData,
+      series: [{ ...prevChartData.series[0], data: chartData2 }],
+    }));
+  }, [data]);
 
   return (
     <div>
