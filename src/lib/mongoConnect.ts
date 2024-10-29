@@ -4,8 +4,11 @@ console.log("uri", MONGODB_URI);
 export const connectDB = async () => {
   try {
     const { connection } = await mongoose.connect(MONGODB_URI as string);
+    console.log(connection);
     if (connection.readyState === 1) {
-      console.log("MongoDB connected successfully.");
+      console.log(
+        `MongoDB connected successfully to database: ${connection.name}`
+      );
       return Promise.resolve(true);
     }
   } catch (error) {

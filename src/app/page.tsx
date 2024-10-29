@@ -6,8 +6,6 @@ import { BiArrowFromRight } from "react-icons/bi";
 import { connectDB } from "@/lib/mongoConnect";
 export default function Home() {
   console.log(lusitana);
-  const connection = connectDB();
-  console.log("connection", connection);
 
   return (
     <>

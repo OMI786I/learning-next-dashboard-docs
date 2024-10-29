@@ -1,5 +1,5 @@
 import { lusitana } from "../ui/font";
-import ApexChart from "./components/ApexChart";
+import ApexChart from "./components/Apex_chart/ApexChart";
 
 export default async function Page() {
   return (
