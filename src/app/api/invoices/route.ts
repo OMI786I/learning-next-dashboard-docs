@@ -7,7 +7,9 @@ import { NextResponse } from "next/server";
 export const GET = async (request: Request) => {
   try {
     await connectDB();
-    const invoices = await Invoices.find();
+
+    //db.foo.find().sort({$natural:1}).limit(50);
+    const invoices = await Invoices.find().sort({ $natural: 1 }).limit(5);
 
     return new NextResponse(JSON.stringify(invoices));
   } catch (error) {

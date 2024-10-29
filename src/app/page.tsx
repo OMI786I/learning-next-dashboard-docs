@@ -5,8 +5,6 @@ import { BsGlobe } from "react-icons/bs";
 import { BiArrowFromRight } from "react-icons/bi";
 import { connectDB } from "@/lib/mongoConnect";
 export default function Home() {
-  console.log(lusitana);
-
   return (
     <>
       <div className="bg-blue-500 text-white h-48 rounded-lg flex items-end">

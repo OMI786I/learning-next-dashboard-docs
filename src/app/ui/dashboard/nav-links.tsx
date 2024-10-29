@@ -10,7 +10,6 @@ import { RiCustomerServiceFill } from "react-icons/ri";
 const NavLinks = () => {
   const presentLink = usePathname();
 
-  console.log(presentLink);
   const links = [
     { name: "Home", href: "/dashboard", icon: <HiHome /> },
     {
