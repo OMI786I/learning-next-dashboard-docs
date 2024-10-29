@@ -1,5 +1,6 @@
 import { lusitana } from "../ui/font";
 import ApexChart from "./components/Apex_chart/ApexChart";
+import Invoices from "./invoices/page";
 
 export default async function Page() {
   return (
@@ -20,6 +21,7 @@ export default async function Page() {
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
         <ApexChart />
         {/* <RevenueChart revenue={revenue}  /> */}
+        <Invoices />
         {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
       </div>
     </main>
